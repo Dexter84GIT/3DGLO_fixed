@@ -49,5 +49,5 @@ const modal = () => {
         }
     })
 }
-
-export default modal
+modal()
+//export default modal

@@ -1,5 +1,3 @@
-'use strict'
-
 //const validation = () => {
 //    const textInput = document.querySelectorAll('input[type="text"]')
 //    const textarea = document.querySelector('.mess')
@@ -55,23 +53,27 @@
 //
 //export default validation
 
+const validation = () => {
 const textInputs = document.querySelectorAll('input[type="text"]')
 const forms = document.querySelectorAll('form')
 //const textInputsID = document.querySelectorAll('#form/[1-9]/gi-name')
 
-forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-        let inputs = form.querySelector('input[type="text"]')
-        console.log(inputs);
-        inputs.forEach(input => {
-            if (input.value = (/[^а-яА-Я]/g.test(input.value))) {
-                console.log('Не ОК');
-            }
+     textInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            input.value = input.value.match(/[а-яА-Я\s\-]+/gi) 
         })
-        inputs.style.border = '1px solid red'
+
+//        if (input.value == (/\d/gi.test(input.value))) {
+//            console.log(`${input.value} 'OK'`);
+//        } else {
+//            console.log(`${input.value} 'Not OK'`);
+//        }
+
     })
-
-//    input.classList.add('text-input') 
-
-}) 
+//    forms.forEach(form => {
+//        form.addEventListener('submit', (e) => {
+//            e.preventDefault()
+//        })
+//    }) 
+}
+validation()
