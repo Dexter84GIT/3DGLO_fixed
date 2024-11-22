@@ -1,3 +1,5 @@
+'use strict'
+
 //const validation = () => {
 //    const textInput = document.querySelectorAll('input[type="text"]')
 //    const textarea = document.querySelector('.mess')
@@ -38,6 +40,8 @@
 //            alert('Send')
 //        }
 
+// import { log } from "neo-async"
+
 
  //   })
 
@@ -50,3 +54,24 @@
 //}
 //
 //export default validation
+
+const textInputs = document.querySelectorAll('input[type="text"]')
+const forms = document.querySelectorAll('form')
+//const textInputsID = document.querySelectorAll('#form/[1-9]/gi-name')
+
+forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let inputs = form.querySelector('input[type="text"]')
+        console.log(inputs);
+        inputs.forEach(input => {
+            if (input.value = (/[^а-яА-Я]/g.test(input.value))) {
+                console.log('Не ОК');
+            }
+        })
+        inputs.style.border = '1px solid red'
+    })
+
+//    input.classList.add('text-input') 
+
+}) 
