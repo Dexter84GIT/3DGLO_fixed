@@ -27,12 +27,13 @@ const timer = (deadline) => {
             timerSeconds.textContent = `0${getTime.seconds}`
         }
         if (getTime.timeRemaining <= 0) {
-            clearInterval(updateClock)
             timerHours.textContent = '00'
             timerMinutes.textContent = '00'
             timerSeconds.textContent = '00'
+            clearInterval(updateClock)
+        } else {
+            setInterval(updateClock, 1000)   
         }
-        setInterval(updateClock, 1000)   
     }
     setTimeout(updateClock, 0)
 }
