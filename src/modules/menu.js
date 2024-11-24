@@ -13,5 +13,5 @@ const menu = () => {
 
     menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
 }
-menu()
-//export default menu
+
+export default menu

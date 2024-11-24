@@ -37,5 +37,5 @@ const timer = (deadline) => {
     setTimeout(updateClock, 0)
 }
 
-timer('27 november 2024')
-//export default timer
+
+export default timer

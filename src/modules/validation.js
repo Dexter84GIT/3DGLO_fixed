@@ -53,27 +53,44 @@
 //
 //export default validation
 
-const validation = () => {
-const textInputs = document.querySelectorAll('input[type="text"]')
-const forms = document.querySelectorAll('form')
-//const textInputsID = document.querySelectorAll('#form/[1-9]/gi-name')
-
-     textInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            input.value = input.value.match(/[а-яА-Я\s\-]+/gi) 
-        })
-
-//        if (input.value == (/\d/gi.test(input.value))) {
-//            console.log(`${input.value} 'OK'`);
-//        } else {
-//            console.log(`${input.value} 'Not OK'`);
-//        }
-
-    })
+//const validation = () => {
+//const textInputs = document.querySelectorAll('input[type="text"]')
+//const emailInputs = document.querySelectorAll('input[type="email"]')
+//const forms = document.querySelectorAll('form')
+//let isError = false
+//
 //    forms.forEach(form => {
+//        textInputs.forEach(textInput => {
+//            textInput.addEventListener('input', () => {
+//                textInput.value = textInput.value.match(/[а-яА-Я\s\-]+/gi) 
+//            })
+//        })
 //        form.addEventListener('submit', (e) => {
 //            e.preventDefault()
+//            textInputs.forEach(textInput => {
+//                textInput.addEventListener('input', () => {
+//                    textInput.value = textInput.value.match(/[а-яА-Я\s\-]+/gi) 
+//                    if (!/[^а-яА-Я]/g.test(textInput.value) && textInput.value !== '') {
+//                        console.log('Нам нужна кириллица!');
+//                    } else {
+//                        isError = true
+//                    }
+//                })
+//            })
+//
 //        })
 //    }) 
-}
-validation()
+//
+//    emailInputs.forEach(input => {
+//            const testEmail = /([\-\.\w]+)(@)([\w]+\.)+([\w]+)/gi
+//            const validEmail = (value) => {
+//                return testEmail.match(value)
+//            }
+//
+//            input.addEventListener('input', validEmail);
+//        })
+//    }
+//
+//
+//
+//validation()
