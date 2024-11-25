@@ -1,9 +1,11 @@
 import timer from './modules/timer'
 import menu from './modules/menu'
 import modal from './modules/modal'
-import validation from './modules/validation'
+//import validation from './modules/validation'
+import tabs from './modules/tabs'
 
-timer('21 november 2024')
+timer('26 november 2024')
 menu()
 modal()
-validation()
+//validation()
+tabs()

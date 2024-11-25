@@ -1,7 +1,7 @@
 const modal = () => { 
     const modal = document.querySelector('.popup')
     const buttons = document.querySelectorAll('.popup-btn')
-    const closeBtn = modal.querySelector('.popup-close')
+    const closeBtn = document.querySelector('.popup-close')
     let windowWidth
     let animation
 
@@ -40,14 +40,14 @@ const modal = () => {
         })
     })
 
-    closeBtn.addEventListener('click', () => {
-        if (windowWidth > 768) {
-            fadeOut(modal, 1000)
-        } else {
-            modal.style.display = 'none';
-            modal.style.opacity = 0;
-        }
-    })
+   closeBtn.addEventListener('click', () => {
+       if (windowWidth > 768) {
+           fadeOut(modal, 1000)
+       } else {
+           modal.style.display = 'none';
+           modal.style.opacity = 0;
+       }
+   })
 }
 
 export default modal
