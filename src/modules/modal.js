@@ -13,7 +13,7 @@ const modal = () => {
         animation = requestAnimationFrame(fadeIn)
         element.style.opacity = 0;
         element.style.display = 'block';
-//        element.style.transition = `opacity ${timeout}ms`;
+
         setTimeout(() => {
             element.style.opacity = 1;
         }, timeout);
@@ -21,7 +21,7 @@ const modal = () => {
 
     const fadeOut = (element, timeout) => {
         element.style.opacity = 1;
-//        element.style.transition = `opacity ${timeout}ms`;
+
         element.style.opacity = 0; 
         setTimeout(() => {
             element.style.display = 'none';
