@@ -1,50 +1,58 @@
+import { animate } from './helpers'
+
 const modal = () => { 
     const modal = document.querySelector('.popup')
+    const popup = document.querySelector('.popup-content')
     const buttons = document.querySelectorAll('.popup-btn')
     const closeBtn = modal.querySelector('.popup-close')
-    let windowWidth
+    let windowWidth = document.documentElement.clientWidth
     let animation
 
     window.addEventListener('resize', () => {
         windowWidth = document.documentElement.clientWidth
     })
 
-    const fadeIn = (element, timeout) => {
-        animation = requestAnimationFrame(fadeIn)
-        element.style.opacity = 0;
-        element.style.display = 'block';
-//        element.style.transition = `opacity ${timeout}ms`;
-        setTimeout(() => {
-            element.style.opacity = 1;
-        }, timeout);
+    const fadeIn = () => {
+        animate({
+            duration: 2000,
+            timing(timeFraction) {
+              return timeFraction;
+            },
+            draw(progress) {
+                modal.style.opacity = progress
+                modal.style.display = 'block';
+            }
+          });
     }
 
-    const fadeOut = (element, timeout) => {
-        element.style.opacity = 1;
-        element.style.opacity = 0; 
-        setTimeout(() => {
-            element.style.display = 'none';
-        }, timeout);
-        cancelAnimationFrame(fadeIn)
+    const fadeOut = () => {
+        animate({
+            duration: 2000,
+            timing(timeFraction) {
+              return timeFraction;
+            },
+            draw(progress) {
+                modal.style.display = 'none';
+            }
+          });
     }
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             if (windowWidth > 768) {
-                fadeIn(modal, 1000);
+                fadeIn();
             } else {
-                modal.style.display = 'block';
-                modal.style.opacity = 1;
+                console.log('not');
+                
             }
         })
     })
 
     closeBtn.addEventListener('click', () => {
         if (windowWidth > 768) {
-            fadeOut(modal, 1000)
+            fadeOut()
         } else {
-            modal.style.display = 'none';
-            modal.style.opacity = 0;
+            console.log('not');
         }
     })
 }

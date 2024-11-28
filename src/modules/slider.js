@@ -5,7 +5,7 @@ const slider = () => {
     const dotsContainer = document.querySelector('.portfolio-dots')
 
     let html = []
-    let dots = document.querySelectorAll('.dot')
+    let dots
     let currentSlide = 0
     let interval = 0
 
@@ -34,6 +34,13 @@ const slider = () => {
         clearInterval(interval)
     }
     const createDots = () => {
+//        dots = slides
+//        dots.forEach((obj) => {
+//            let obj = document.createElement('li')
+//            obj.classList.add('dot')
+//            obj.textContent = '.'
+//            dotsContainer.append(obj)
+//        })
         let newDots = []
         let dot = document.createElement('li')
         for (let i = 0; i < slides.length; i++) {
