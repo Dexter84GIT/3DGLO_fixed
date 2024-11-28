@@ -2,11 +2,10 @@ import { animate } from './helpers'
 
 const modal = () => { 
     const modal = document.querySelector('.popup')
-    const popup = document.querySelector('.popup-content')
     const buttons = document.querySelectorAll('.popup-btn')
     const closeBtn = modal.querySelector('.popup-close')
     let windowWidth = document.documentElement.clientWidth
-    let animation
+
 
     window.addEventListener('resize', () => {
         windowWidth = document.documentElement.clientWidth
@@ -14,7 +13,7 @@ const modal = () => {
 
     const fadeIn = () => {
         animate({
-            duration: 2000,
+            duration: 1000,
             timing(timeFraction) {
               return timeFraction;
             },
@@ -42,7 +41,7 @@ const modal = () => {
             if (windowWidth > 768) {
                 fadeIn();
             } else {
-                console.log('not');
+                modal.style.display = 'block';
                 
             }
         })
@@ -52,7 +51,7 @@ const modal = () => {
         if (windowWidth > 768) {
             fadeOut()
         } else {
-            console.log('not');
+            modal.style.display = 'none';
         }
     })
 }
