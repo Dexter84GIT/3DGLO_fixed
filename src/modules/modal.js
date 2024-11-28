@@ -26,7 +26,7 @@ const modal = () => {
 
     const fadeOut = () => {
         animate({
-            duration: 2000,
+            duration: 1000,
             timing(timeFraction) {
               return timeFraction;
             },
@@ -42,7 +42,6 @@ const modal = () => {
                 fadeIn();
             } else {
                 modal.style.display = 'block';
-                
             }
         })
     })
