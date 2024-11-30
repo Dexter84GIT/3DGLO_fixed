@@ -19,11 +19,11 @@ const timer = (deadline) => {
         timerHours.textContent = getTime.hours
         timerMinutes.textContent = getTime.minutes
         timerSeconds.textContent = getTime.seconds
-        if (timerHours.textContent.length < 2) {
+        if (timerHours.textContent.length <= 1) {
             timerHours.textContent = `0${getTime.hours}`
-        } else if (timerMinutes.textContent.length < 2) {
+        } else if (timerMinutes.textContent.length <= 1) {
             timerMinutes.textContent = `0${getTime.minutes}`
-        } else if (timerSeconds.textContent.length < 2) {
+        } else if (timerSeconds.textContent.length <= 1) {
             timerSeconds.textContent = `0${getTime.seconds}`
         }
         if (getTime.timeRemaining <= 0) {
