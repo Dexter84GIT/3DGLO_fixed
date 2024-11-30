@@ -4,8 +4,19 @@ const validate = () => {
     const textarea = document.querySelector('.mess')
     const emailInput = document.querySelectorAll('input[type="email"]')
     const phoneInput = document.querySelectorAll('input[type="tel"]')
-
+    const calcItem = document.querySelectorAll('.calc-block input[type="text"]')
     
+    calcItem.forEach(input => {
+        input.addEventListener('input', (e) => {
+            let value = e.target.value
+            const regExp = /[^0-9]/gi
+            if (regExp.test(value)) {
+                value = value.replace(regExp, '')
+                e.target.value = value
+            }
+        })
+    })
+
     form.forEach(form => {
         form.addEventListener('input', (e) => {
             e.preventDefault()
