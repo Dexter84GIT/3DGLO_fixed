@@ -4,7 +4,6 @@ const slider = () => {
     const timeInterval = 2000
     const dotsContainer = document.querySelector('.portfolio-dots')
 
-    let html = []
     let dots
     let currentSlide = 0
     let interval = 0
@@ -34,23 +33,13 @@ const slider = () => {
         clearInterval(interval)
     }
     const createDots = () => {
-//        dots = slides
-//        dots.forEach((obj) => {
-//            let obj = document.createElement('li')
-//            obj.classList.add('dot')
-//            obj.textContent = '.'
-//            dotsContainer.append(obj)
-//        })
-        let newDots = []
-        let dot = document.createElement('li')
-        for (let i = 0; i < slides.length; i++) {
-            newDots.push(dot)
-            dots = newDots     
-        }
-        html = newDots.map(() => `<li class='dot'></li>`).join('');
-        dotsContainer.innerHTML = html;
-        let dotsList = document.querySelectorAll('.dot')
-        dotsList[0].classList.add('dot-active')
+        slides.forEach(slide => {
+            slide = document.createElement('li')
+            slide.classList.add('dot')
+            dotsContainer.append(slide)
+        })
+        let newDots = document.querySelectorAll('.dot')
+        dots = newDots
     }
     sliderBlock.addEventListener('click', (e) => {
         e.preventDefault()
