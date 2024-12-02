@@ -33,12 +33,19 @@ const slider = () => {
         clearInterval(interval)
     }
     const createDots = () => {
-        slides.forEach(slide => {
+        slides.forEach((slide, index) => {
             slide = document.createElement('li')
             slide.classList.add('dot')
+
+            if (index == 0) {
+                slide.classList.add('dot-active')
+            }
+            
             dotsContainer.append(slide)
         })
         let newDots = document.querySelectorAll('.dot')
+
+        
         dots = newDots
     }
     sliderBlock.addEventListener('click', (e) => {

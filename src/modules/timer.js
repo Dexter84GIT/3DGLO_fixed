@@ -3,6 +3,7 @@ const timer = (deadline) => {
     const timerMinutes = document.getElementById('timer-minutes')
     const timerSeconds = document.getElementById('timer-seconds')
 
+
     const getTimeRemaining = () => {
         const dateStop = new Date(deadline).getTime()
         const dateNow = new Date().getTime()
@@ -15,27 +16,29 @@ const timer = (deadline) => {
     }
     const updateClock = () => {
         const getTime = getTimeRemaining()
-
+        
         timerHours.textContent = getTime.hours
         timerMinutes.textContent = getTime.minutes
         timerSeconds.textContent = getTime.seconds
-        if (timerHours.textContent.length <= 1) {
-            timerHours.textContent = `0${getTime.hours}`
-        } else if (timerMinutes.textContent.length <= 1) {
-            timerMinutes.textContent = `0${getTime.minutes}`
-        } else if (timerSeconds.textContent.length <= 1) {
-            timerSeconds.textContent = `0${getTime.seconds}`
-        }
         if (getTime.timeRemaining <= 0) {
             clearInterval(updateClock)
             timerHours.textContent = '00'
             timerMinutes.textContent = '00'
             timerSeconds.textContent = '00'
+            return 
+        }
+        if (timerHours.textContent.length < 2) {
+            timerHours.textContent = `0${getTime.hours}`
+        }
+        if (timerMinutes.textContent.length < 2) {
+            timerMinutes.textContent = `0${getTime.minutes}`
+        } 
+        if (timerSeconds.textContent.length < 2) {
+            timerSeconds.textContent = `0${getTime.seconds}`
         }
         setInterval(updateClock, 1000)   
     }
     setTimeout(updateClock, 0)
 }
-
 
 export default timer

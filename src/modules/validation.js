@@ -21,7 +21,7 @@ const validate = () => {
         form.addEventListener('input', (e) => {
             e.preventDefault()
             let value = e.target.value
-            const regExp = /[a-zA-Z]/gi
+            const regExp = /[^а-яА-Я\-\d]/gi
             const testEmail = /[^a-zA-Z0-9\@\-\_\.\!\~\*\']/gi
             const testPhone = /[^0-9\(\)\-]/gi
 
