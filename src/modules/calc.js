@@ -30,7 +30,7 @@ const calc = (price = 100) => {
             totalValue = 0
         }
         
-        total.textContent = totalValue
+        total.textContent = Math.ceil(totalValue)
     }
 
     calcBlock.addEventListener('input', (e) => {

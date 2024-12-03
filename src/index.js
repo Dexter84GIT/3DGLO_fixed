@@ -15,7 +15,7 @@ tabs()
 calc()
 validate()
 sendForm({ 
-    formId: 'form1', 
+    formId:  'form1',
     someElem: [
         {
             type: 'block',

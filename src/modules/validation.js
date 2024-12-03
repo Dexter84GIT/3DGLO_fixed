@@ -1,11 +1,11 @@
 const validate = () => {
     const form = document.querySelectorAll('form')
-    const textInput = document.querySelectorAll('input[type="text"]')
-    const textarea = document.querySelector('.mess')
     const emailInput = document.querySelectorAll('input[type="email"]')
-    const phoneInput = document.querySelectorAll('input[type="tel"]')
     const calcItem = document.querySelectorAll('.calc-block input[type="text"]')
-    
+    const phoneInput = document.querySelectorAll('input[name="user_phone"]')
+    const nameInput = document.querySelectorAll('input[name="user_name"]')
+    const messageInput = document.querySelector('input[name="user_message"]')
+
     calcItem.forEach(input => {
         input.addEventListener('input', (e) => {
             let value = e.target.value
@@ -20,11 +20,12 @@ const validate = () => {
     form.forEach(form => {
         form.addEventListener('input', (e) => {
             e.preventDefault()
-            const regExp = /[^а-яА-Я\-\d]+$/gi
+            const regExp = /[^а-яА-Я\s]+$/gi
             const testEmail = /[^a-zA-Z0-9\@\-\_\.\!\~\*\']/gi
-            const testPhone = /[^0-9\(\)\-]/gi
+            const testPhone = /[^0-9\(\)\-\+]/gi
+            const textMessage = /[^а-яА-Я0-9\,\.\!\?\-\:\d\s]+$/gi
 
-            textInput.forEach(input => {
+            nameInput.forEach(input => {
                 input.addEventListener('input', (e) => {
                     let value = e.target.value
                     if (regExp.test(value) && value !== '') {
@@ -33,10 +34,10 @@ const validate = () => {
                     } 
                 })
             }) 
-            textarea.addEventListener('input', (e) => {
+            messageInput.addEventListener('input', (e) => {
                 let value = e.target.value
-                if (regExp.test(value) && value !== '') {
-                    value = value.replace(regExp, '')
+                if (textMessage.test(value) && value !== '') {
+                    value = value.replace(textMessage, '')
                     e.target.value = value
                 }
             })

@@ -1,4 +1,5 @@
-const sendForm = ({ formId, someElem = [] }) => {
+const sendForm = ({ formId, someElem = [] }) => {  
+
     const form = document.getElementById(formId)
     const statusBlock = document.createElement('div')
     const loadText = 'Загрузка...'
@@ -8,14 +9,8 @@ const sendForm = ({ formId, someElem = [] }) => {
     const validate = (list) => {
         let success = true
 
-//       list.forEach(input => {
-//            if (!input.classList.contains('success')) {
-//                success = false
-//            }
-//        })
         return success
     }
-    
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: "POST",
@@ -30,9 +25,6 @@ const sendForm = ({ formId, someElem = [] }) => {
         const formElements = form.querySelectorAll('input')
         const formData = new FormData(form)
         const formBody = {}
-        const phoneInput = form.querySelectorAll('input[name="user_phone"]')
-        const nameInput = form.querySelectorAll('input[name="user_name"]')
-        const messageInput = form.querySelectorAll('input[name="user_message"]')
         
         statusBlock.textContent = loadText
         form.append(statusBlock)
