@@ -76,8 +76,6 @@ const sendForm = ({ formId, someElem = [] }) => {
             e.preventDefault()
     
             submitForm()
-            console.log('123');
-            
         })
     } catch(error) {
         console.log(error.message)

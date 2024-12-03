@@ -20,20 +20,21 @@ const validate = () => {
     form.forEach(form => {
         form.addEventListener('input', (e) => {
             e.preventDefault()
-            let value = e.target.value
-            const regExp = /[^а-яА-Я\-\d]/gi
+            const regExp = /[^а-яА-Я\-\d]+$/gi
             const testEmail = /[^a-zA-Z0-9\@\-\_\.\!\~\*\']/gi
             const testPhone = /[^0-9\(\)\-]/gi
 
             textInput.forEach(input => {
                 input.addEventListener('input', (e) => {
+                    let value = e.target.value
                     if (regExp.test(value) && value !== '') {
                         value = value.replace(regExp, '')
                         e.target.value = value
-                    }
+                    } 
                 })
             }) 
             textarea.addEventListener('input', (e) => {
+                let value = e.target.value
                 if (regExp.test(value) && value !== '') {
                     value = value.replace(regExp, '')
                     e.target.value = value
@@ -41,7 +42,8 @@ const validate = () => {
             })
             emailInput.forEach(input => {
                 input.addEventListener('input', (e) => {
-                    if (testEmail.test(value)) {
+                    let value = e.target.value
+                    if (testEmail.test(value) && value !== '') {
                         value = value.replace(testEmail, '')
                         e.target.value = value
                     }
@@ -49,7 +51,8 @@ const validate = () => {
             })
             phoneInput.forEach(input => {
                 input.addEventListener('input', (e) => {
-                    if (testPhone.test(value)) {
+                    let value = e.target.value
+                    if (testPhone.test(value) && value !== '') {
                         value = value.replace(testPhone, '')
                         e.target.value = value
                     }
