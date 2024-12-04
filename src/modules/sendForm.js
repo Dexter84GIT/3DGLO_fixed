@@ -1,7 +1,7 @@
 const sendForm = ({ formId, someElem = [] }) => {  
 
     const form = document.getElementById(formId)
-    const statusBlock = document.createElement('div')
+    let statusBlock = document.createElement('div')
     const loadText = 'Загрузка...'
     const errorText = 'Ошибка...'
     const successText = 'Спасибо! Наш менеджер с вами свяжется!'
@@ -20,13 +20,13 @@ const sendForm = ({ formId, someElem = [] }) => {
             }
         }).then(res => res.json())
     }
-
     const submitForm = () => {
         const formElements = form.querySelectorAll('input')
         const formData = new FormData(form)
         const formBody = {}
         
         statusBlock.textContent = loadText
+        statusBlock.classList.add('status-text')
         form.append(statusBlock)
 
         formData.forEach((val, key) => {
