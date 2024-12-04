@@ -5,7 +5,7 @@ const sendForm = ({ formId, someElem = [] }) => {
     const loadText = 'Загрузка...'
     const errorText = 'Ошибка...'
     const successText = 'Спасибо! Наш менеджер с вами свяжется!'
-    
+     
     const validate = (list) => {
         let success = true
 
